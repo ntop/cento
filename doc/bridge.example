@@ -1,0 +1,19 @@
+# Configuration file for bridge mode
+
+# Supported actions:
+#  forward - forward the packet
+#  discard - do not forward the packet
+#  default - use the default policy
+
+# Example:
+# cento-bridge -i zc:eth1,zc:eth2 --bridge-conf bridge.example --banned-hosts banned.example --dpi-level 2 -v 4
+
+[bridge]
+default = forward
+banned-hosts = discard
+
+[bridge.subnet]
+
+[bridge.protocol]
+Skype = discard
+

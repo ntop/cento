@@ -1,0 +1,375 @@
+{
+   "swagger":"2.0",
+   "info":{
+      "version":"1.9",
+      "title":"cento",
+      "description":"cento RESTful API documentation"
+   },
+   "tags":[
+      {
+         "name":"Aggregated Egress Queue",
+         "description":"Aggregated egress queues configuration"
+      },
+      {
+         "name":"Balanced Egress Queue",
+         "description":"Balanced egress queues configuration"
+      },
+      {
+         "name":"Bridge",
+         "description":"Bridge configuration"
+      }
+   ],
+   "schemes":[
+      "https",
+      "http"
+   ],
+   "paths":{
+      "/egress/aggregated/[<Queue Index>/]default":{
+         "get":{
+            "tags":[
+               "Aggregated Egress Queue"
+            ],
+            "summary":"Set the default policy for the aggregated egress queue",
+            "description":"Set the policy to be applied by default to the traffic directed to the aggregated egress queue or interface.",
+            "operationId":"egress_aggregated_default",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"action",
+                  "in":"query",
+                  "description":"Default action (forward, discard, shunt, slice-l4, slice-l3)",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful operation, the returned object contains the actual status.",
+                  "schema":{
+                     "$ref":"#/definitions/Status"
+                  }
+               },
+               "400":{
+                  "description":"Invalid status value."
+               }
+            }
+         }
+      },
+      "/egress/aggregated/[<Queue Index>/]ip":{
+         "get":{
+            "tags":[
+               "Aggregated Egress Queue"
+            ],
+            "summary":"Set a subnet-based policy for the aggregated egress queue",
+            "description":"Set a policy to be applied to all traffic matching the provided subnet and directed to the aggregated egress queue or interface.",
+            "operationId":"egress_aggregated_default",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"subnet",
+                  "in":"query",
+                  "description":"Subnet to match in CIDR format",
+                  "required":true,
+                  "type":"string"
+               },
+               {
+                  "name":"action",
+                  "in":"query",
+                  "description":"Action (forward, discard, shunt, slice-l4, slice-l3)",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful operation, the returned object contains the actual status.",
+                  "schema":{
+                     "$ref":"#/definitions/Status"
+                  }
+               },
+               "400":{
+                  "description":"Invalid status value."
+               }
+            }
+         }
+      },
+      "/egress/aggregated/[<Queue Index>/]protocol/<Application Protocol>":{
+         "get":{
+            "tags":[
+               "Aggregated Egress Queue"
+            ],
+            "summary":"Set a layer-7 protocol-based policy for the aggregated egress queue",
+            "description":"Set a policy to be applied to all traffic matching the provided layer-7 application protocol (nDPI) and directed to the aggregated egress queue or interface.",
+            "operationId":"egress_aggregated_default",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"action",
+                  "in":"query",
+                  "description":"Action (forward, discard, shunt, slice-l4, slice-l3)",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful operation, the returned object contains the actual status.",
+                  "schema":{
+                     "$ref":"#/definitions/Status"
+                  }
+               },
+               "400":{
+                  "description":"Invalid status value."
+               }
+            }
+         }
+      },
+
+      "/egress/balanced/default":{
+         "get":{
+            "tags":[
+               "Balanced Egress Queue"
+            ],
+            "summary":"Set the default policy for the balanced egress queue",
+            "description":"Set the policy to be applied by default to the traffic directed to the balanced egress queue or interface.",
+            "operationId":"egress_balanced_default",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"action",
+                  "in":"query",
+                  "description":"Default action (forward, discard, shunt, slice-l4, slice-l3)",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful operation, the returned object contains the actual status.",
+                  "schema":{
+                     "$ref":"#/definitions/Status"
+                  }
+               },
+               "400":{
+                  "description":"Invalid status value."
+               }
+            }
+         }
+      },
+      "/egress/balanced/ip":{
+         "get":{
+            "tags":[
+               "Balanced Egress Queue"
+            ],
+            "summary":"Set a subnet-based policy for the balanced egress queue",
+            "description":"Set a policy to be applied to all traffic matching the provided subnet and directed to the balanced egress queue or interface.",
+            "operationId":"egress_balanced_default",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"subnet",
+                  "in":"query",
+                  "description":"Subnet to match in CIDR format",
+                  "required":true,
+                  "type":"string"
+               },
+               {
+                  "name":"action",
+                  "in":"query",
+                  "description":"Action (forward, discard, shunt, slice-l4, slice-l3)",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful operation, the returned object contains the actual status.",
+                  "schema":{
+                     "$ref":"#/definitions/Status"
+                  }
+               },
+               "400":{
+                  "description":"Invalid status value."
+               }
+            }
+         }
+      },
+      "/egress/balanced/protocol/<Application Protocol>":{
+         "get":{
+            "tags":[
+               "Balanced Egress Queue"
+            ],
+            "summary":"Set a layer-7 protocol-based policy for the balanced egress queue",
+            "description":"Set a policy to be applied to all traffic matching the provided layer-7 application protocol (nDPI) and directed to the balanced egress queue or interface.",
+            "operationId":"egress_balanced_default",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"action",
+                  "in":"query",
+                  "description":"Action (forward, discard, shunt, slice-l4, slice-l3)",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful operation, the returned object contains the actual status.",
+                  "schema":{
+                     "$ref":"#/definitions/Status"
+                  }
+               },
+               "400":{
+                  "description":"Invalid status value."
+               }
+            }
+         }
+      },
+
+      "/egress/bridge/default":{
+         "get":{
+            "tags":[
+               "Bridge"
+            ],
+            "summary":"Set the default policy for the bridge",
+            "description":"Set the policy to be applied by default to the traffic directed to the bridged interfaces.",
+            "operationId":"egress_bridge_default",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"action",
+                  "in":"query",
+                  "description":"Default action (forward, discard, shunt, slice-l4, slice-l3)",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful operation, the returned object contains the actual status.",
+                  "schema":{
+                     "$ref":"#/definitions/Status"
+                  }
+               },
+               "400":{
+                  "description":"Invalid status value."
+               }
+            }
+         }
+      },
+      "/egress/bridge/ip":{
+         "get":{
+            "tags":[
+               "Bridge"
+            ],
+            "summary":"Set a subnet-based policy for the bridge",
+            "description":"Set a policy to be applied to all traffic matching the provided subnet and directed to the bridged interfaces.",
+            "operationId":"egress_bridge_default",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"subnet",
+                  "in":"query",
+                  "description":"Subnet to match in CIDR format",
+                  "required":true,
+                  "type":"string"
+               },
+               {
+                  "name":"action",
+                  "in":"query",
+                  "description":"Action (forward, discard, shunt, slice-l4, slice-l3)",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful operation, the returned object contains the actual status.",
+                  "schema":{
+                     "$ref":"#/definitions/Status"
+                  }
+               },
+               "400":{
+                  "description":"Invalid status value."
+               }
+            }
+         }
+      },
+      "/egress/bridge/protocol/<Application Protocol>":{
+         "get":{
+            "tags":[
+               "Bridge"
+            ],
+            "summary":"Set a layer-7 protocol-based policy for the bridge",
+            "description":"Set a policy to be applied to all traffic matching the provided layer-7 application protocol (nDPI) and directed to the bridged interface.",
+            "operationId":"egress_bridge_default",
+            "produces":[
+               "application/json"
+            ],
+            "parameters":[
+               {
+                  "name":"action",
+                  "in":"query",
+                  "description":"Action (forward, discard, shunt, slice-l4, slice-l3)",
+                  "required":true,
+                  "type":"string"
+               }
+            ],
+            "responses":{
+               "200":{
+                  "description":"Successful operation, the returned object contains the actual status.",
+                  "schema":{
+                     "$ref":"#/definitions/Status"
+                  }
+               },
+               "400":{
+                  "description":"Invalid status value."
+               }
+            }
+         }
+      }
+
+   },
+   "definitions":{
+      "Interface":{
+         "type":"object",
+         "properties":{
+            "envelope_ver":{
+               "type":"string"
+            },
+            "status":{
+               "type":"integer",
+               "format":"int32"
+            },
+            "description":{
+               "type":"string"
+            },
+            "data":{
+               "type":"object",
+		   "properties":{
+	              "function":{
+	                 "type":"string"
+	              }
+		}
+            }
+         }
+      }
+   }
+}
+

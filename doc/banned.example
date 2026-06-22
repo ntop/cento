@@ -1,0 +1,7 @@
+# Configuration file for banned hosts
+
+# Example: 
+# cento -i eth1 --banned-hosts banned.example --dpi-level 1
+
+facebook.com
+live.com

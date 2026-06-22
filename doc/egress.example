@@ -1,0 +1,67 @@
+# Configuration file for egress queues
+
+# Supported actions for egress queues:
+#  forward - forward the packet
+#  discard - do not forward the packet
+#  slice-l3 - cut the packet after the IP layaer
+#  slice-l4 - cut the packet after the TCP/UDP layer
+#  shunt - forward the first K packets in a flow
+#  default - use the default policy
+
+# Shunt settings - number of packets per protocol type to forward in a flow
+
+[shunt]
+default = 10
+tcp = 12
+udp = 2
+HTTP = 40
+SSL = 5
+
+# Configuration section for aggregated egress (usually used for traffic recording with n2disk)
+# Example:
+# cento-ids -i zc:eth1 --aggregated-egress-queue --egress-conf egress.example --dpi-level 2 -v 4
+# n2disk -i zc:10@0 -o /storage --index --index-version 2 --timeline-dir /storage
+
+[egress.aggregated]
+default = forward
+banned-hosts = discard
+
+[egress.aggregated.subnet]
+10.0.0.1/32 = discard
+10.10.10/24 = discard
+ 
+[egress.aggregated.protocol]
+HTTP = forward
+YouTube = shunt
+SSL = slice-l4
+SSH = slice-l4
+
+# Configuration section example in case of multiple aggregated egresses, using the egress index (0 .. NumEgress - 1)
+# Note: when egress index is not specified, index 0 is implicitly selected (as in the example above).
+
+[egress.aggregated.1]
+default = discard
+
+[egress.aggregated.1.subnet]
+10.0.0.1/32 = forward
+ 
+[egress.aggregated.1.protocol]
+HTTP = forward
+
+# Configuration section for balanced egress (usually used with IDSs like Snort/Bro/Suricata)
+# Example:
+# cento-ids -i zc:eth1 --balanced-egress-queues 2 --egress-conf egress.example --dpi-level 2 -v 4
+# snort --daq-dir=/usr/local/lib/daq --daq pfring_zc --daq-mode passive -i zc:10@0 -v -e 
+# snort --daq-dir=/usr/local/lib/daq --daq pfring_zc --daq-mode passive -i zc:10@1 -v -e
+
+[egress.balanced]
+default = forward
+banned-hosts = discard
+
+[egress.balanced.subnet]
+192.168.2/24 = discard
+
+[egress.balanced.protocol]
+SSL = discard
+SSH = discard
+

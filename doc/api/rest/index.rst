@@ -27,8 +27,10 @@ Defaults settings:
 
  - HTTP port: :code:`8880`
  - HTTPs port: :code:`4443`
- - User: :code:`admin`
- - Password: :code:`admin`
+
+There are no default credentials: a password must be configured in Redis for a user before
+the REST API will accept authentication as that user. See the *Authentication* section of the
+REST API specification for how to set it.
 
 Please check the REST API specifications for information about the available REST endpoints.
 

@@ -13,7 +13,7 @@ for example with `curl` it is possible to specify username and password with
 
 .. code:: bash
 
-   curl -u <user>:<password> "https://192.168.1.1:8880/egress/aggregated/default?action=forward"
+   curl -u <user>:<password> "https://localhost:4443/egress/aggregated/default?action=forward"
 
 Please check the *Examples* section for more examples.
 

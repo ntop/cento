@@ -318,6 +318,10 @@ When multiple *--zmq* endpoints and multiple interfaces are specified, this opti
   cento -i zc:eth1@[0-1] --zmq tcp://127.0.0.1:5556 --zmq tcp://127.0.0.1:5557 --zmq-direct-mapping
 
 
+*[--zmq-stats-only]*
+
+Export only periodic interface statistics (no flows) to the *--zmq* endpoints. This is useful when flows are delivered to collectors, other than ntopng, through a different channel. For instance when exporting to Kafka or NetFlow, while you want to still use ntopng to monitor the application via ZMQ and get packet processing and flow export statistics.
+
 *[--tcp <address>:<port>]*
 
 Flows can be exported by nProbe™ Cento in JSON format via TCP to a given server specifying <addres> and <port>. It is possible to use labels instead of numeric keys by adding the option *--json-labels*.

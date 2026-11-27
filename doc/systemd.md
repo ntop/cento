@@ -1,5 +1,9 @@
-Systemd
-=======
+---
+title: "Systemd"
+description: "cento is controlled using utility systemctl on operating systems and distributions that use the systemd service manager."
+outline: [2, 3]
+---
+# Systemd {#systemd}
 
 cento is controlled using utility `systemctl` on operating systems
 and distributions that use the `systemd` service manager.
@@ -15,43 +19,40 @@ configuration file modifications.
 The cento service is always started on boot by default. The service
 must be disabled to prevent this behavior.
 
-The cento service configuration file
-------------------------------------
+## The cento service configuration file {#the-cento-service-configuration-file}
 
 The configuration file is located at `/etc/cento/cento.conf`.
 
-Controlling cento
-~~~~~~~~~~~~~~~~~
+### Controlling cento {#controlling-cento}
 
 To start, stop and restart the cento service type:
 
-.. code-block:: console
-
-   systemctl start cento
-   systemctl stop cento
-   systemctl restart cento
+```console
+systemctl start cento
+systemctl stop cento
+systemctl restart cento
+```
 
 To prevent cento from starting on boot type:
 
-.. code-block:: console
-
-   systemctl disable cento
+```console
+systemctl disable cento
+```
 
 To start cento on boot, assuming it has previously been disabled,
 type:
 
-.. code-block:: console
-
-   systemctl enable cento
+```console
+systemctl enable cento
+```
 
 To check the status of the service, including its output and PID, type:
 
-.. code-block:: console
+```console
+systemctl status cento
+```
 
-   systemctl status cento
-
-Instantiated cento services
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+### Instantiated cento services {#instantiated-cento-services}
 
 There are circumstances under which multiple instances of the cento
 service may run on the same host. To manage a particular `<instance>`
@@ -69,29 +70,28 @@ For example, to start two cento services, on interface `eno1` and
 another on zero-copy interface `eth1` respectively, one can create the
 following configuration files:
 
-.. code-block:: text
-
-   /etc/cento/cento-eno1.conf
-   /etc/cento/cento-zc:eth1.conf
+```text
+/etc/cento/cento-eno1.conf
+/etc/cento/cento-zc:eth1.conf
+```
 
 And then start the services with:
 
-.. code-block:: console
-
-   systemctl start cento@eno1
-   systemctl start cento@zc:eth1
+```console
+systemctl start cento@eno1
+systemctl start cento@zc:eth1
+```
 
 Optionally, one may want to start the services on boot with:
 
-.. code-block:: console
-
-   systemctl enable cento@eno1
-   systemctl enable cento@zc:eth1
+```console
+systemctl enable cento@eno1
+systemctl enable cento@zc:eth1
+```
 
 The status of the services above can be controlled with:
 
-.. code-block:: console
-
-   systemctl status cento@eno1
-   systemctl status cento@zc:eth1
-
+```console
+systemctl status cento@eno1
+systemctl status cento@zc:eth1
+```

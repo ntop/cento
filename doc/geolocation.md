@@ -1,27 +1,30 @@
-Geolocation Database
-====================
+---
+title: "Geolocation Database"
+description: "nProbe Cento includes Geolocation support provided by the following companies The geolocation implementation is based on a database file stored locally..."
+outline: [2, 3]
+---
+# Geolocation Database {#geolocation-database}
 
 nProbe Cento includes Geolocation support provided by the following companies
 
-- MaxMind https://www.maxmind.com
-- DB-IP https://db-ip.com
+- MaxMind <https://www.maxmind.com>
+- DB-IP <https://db-ip.com>
 
 The geolocation implementation is based on a database file stored locally with no cloud access whatsoever.
 
 You can choose to install the free (albeit not very accurate) GeoIP databases or the commercial ones.
 
-Using MaxMind geolocation
--------------------------
+## Using MaxMind geolocation {#using-maxmind-geolocation}
 
 New privacy regulations, such as GDPR and CCPA, place restrictions that impact our ability to distre MaxMind GeoLite2 databases in our packages.
-Reasons are explained in detail at the following page https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/.
+Reasons are explained in detail at the following page <https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/>.
 For this reason you are required to register for a MaxMind account and obtain a license key in order to download GeoLite2 geolocation databases.
 
 The steps below are necessary to use geolocation.
 
-Register for a MaxMind account at https://www.maxmind.com/en/geolite2/signup.
+Register for a MaxMind account at <https://www.maxmind.com/en/geolite2/signup>.
 
-Create a license key at https://www.maxmind.com/en/accounts/current/license-key.
+Create a license key at <https://www.maxmind.com/en/accounts/current/license-key>.
 
 1. Select "Generate New License Key".
 2. Add a license key description and answer "Yes" to the question "Will this key be used for GeoIP Update?".
@@ -34,15 +37,13 @@ Make sure that the `EditionIDs` section (or `ProductIds` according to the `geoip
 Run `sudo geoipupdate` to download the database files or manually download database files
 `GeoLite2-ASN.mmdb` and `GeoLite2-City.mmdb` from the "GeoIP2 / GeoLite2" > "Download Files" section of your MaxMind account page
 
-In order to update the database you can use `geoipupdate`. Instructions to use `geoipupdate` are available at https://dev.maxmind.com/geoip/geoipupdate/
+In order to update the database you can use `geoipupdate`. Instructions to use `geoipupdate` are available at <https://dev.maxmind.com/geoip/geoipupdate/>
 
-Using DB-IP Lite
-----------------
+## Using DB-IP Lite {#using-db-ip-lite}
 
-DB-IP Lite geolocation databseses `dbip-city-lite`, `dbip-asn-lite` and `dbip-country-lite` can be downloaded from https://db-ip.com/db/
+DB-IP Lite geolocation databseses `dbip-city-lite`, `dbip-asn-lite` and `dbip-country-lite` can be downloaded from <https://db-ip.com/db/>
 
-Install DB files
-----------------
+## Install DB files {#install-db-files}
 
 Downloaded database files (mmdb) should be moved under one of the below folders:
 
@@ -57,14 +58,13 @@ And their name should match:
 
 or
 
-- dbip-asn*.mmdb
-- dbip-city*.mmdb
+- dbip-asn\*.mmdb
+- dbip-city\*.mmdb
 
-.. code-block:: console
-
-   mkdir /var/lib/GeoIP
-   mv GeoLite2-ASN.mmdb /var/lib/GeoIP
-   mv GeoLite2-City.mmdb /var/lib/GeoIP
+```console
+mkdir /var/lib/GeoIP
+mv GeoLite2-ASN.mmdb /var/lib/GeoIP
+mv GeoLite2-City.mmdb /var/lib/GeoIP
+```
 
 Restart nProbe Cento. Upon restart, software will automatically locate and load the downloaded databases.
-

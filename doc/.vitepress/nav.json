@@ -1,0 +1,141 @@
+{
+ "sidebar": [
+  {
+   "text": "User's Guide",
+   "items": [
+    {
+     "text": "Installation",
+     "link": "/installation"
+    },
+    {
+     "text": "Models Comparison Table",
+     "link": "/versions"
+    },
+    {
+     "text": "Definitions",
+     "link": "/definitions"
+    },
+    {
+     "text": "Use Cases",
+     "link": "/usecases"
+    },
+    {
+     "text": "ClickHouse Export",
+     "link": "/clickhouse"
+    },
+    {
+     "text": "Flow Offload",
+     "link": "/offload"
+    },
+    {
+     "text": "Egress Queues",
+     "link": "/egress"
+    },
+    {
+     "text": "Network Bridge",
+     "link": "/bridge"
+    },
+    {
+     "text": "Command Line Options",
+     "link": "/options"
+    },
+    {
+     "text": "Systemd",
+     "link": "/systemd"
+    },
+    {
+     "text": "API Documentation",
+     "link": "/api/",
+     "items": [
+      {
+       "text": "RESTful API",
+       "link": "/api/rest/",
+       "items": [
+        {
+         "text": "RESTful API Specification",
+         "link": "/api/rest/api"
+        },
+        {
+         "text": "Examples",
+         "link": "/api/rest/examples"
+        }
+       ],
+       "collapsed": true
+      }
+     ],
+     "collapsed": true
+    },
+    {
+     "text": "Hugepages Configuration",
+     "link": "/hugepages"
+    },
+    {
+     "text": "Geolocation Database",
+     "link": "/geolocation"
+    },
+    {
+     "text": "References",
+     "link": "/references"
+    }
+   ]
+  }
+ ],
+ "external": [
+  {
+   "text": "ntopng",
+   "link": "https://www.ntop.org/guides/ntopng/"
+  },
+  {
+   "text": "nProbe",
+   "link": "https://www.ntop.org/guides/nprobe/"
+  },
+  {
+   "text": "n2disk",
+   "link": "https://www.ntop.org/guides/n2disk/"
+  },
+  {
+   "text": "nDPI",
+   "link": "https://www.ntop.org/guides/nDPI/"
+  },
+  {
+   "text": "PF_RING",
+   "link": "https://www.ntop.org/guides/pf_ring/"
+  },
+  {
+   "text": "nEdge",
+   "link": "https://www.ntop.org/guides/nedge/"
+  },
+  {
+   "text": "nScrub",
+   "link": "https://www.ntop.org/guides/nscrub/"
+  },
+  {
+   "text": "nBox",
+   "link": "https://www.ntop.org/guides/nbox/"
+  },
+  {
+   "text": "nTap",
+   "link": "https://www.ntop.org/guides/ntap/"
+  }
+ ],
+ "pages": {
+  "api/index": "API Documentation",
+  "api/rest/api": "RESTful API Specification",
+  "api/rest/examples": "Examples",
+  "api/rest/index": "RESTful API",
+  "bridge": "Network Bridge",
+  "clickhouse": "ClickHouse Export",
+  "definitions": "Definitions",
+  "egress": "Egress Queues",
+  "geolocation": "Geolocation Database",
+  "hugepages": "Hugepages Configuration",
+  "index": "nProbe Cento Documentation",
+  "installation": "Installation",
+  "offload": "Flow Offload",
+  "options": "Command Line Options",
+  "references": "References",
+  "systemd": "Systemd",
+  "usecases": "Use Cases",
+  "versions": "Models Comparison Table"
+ }
+}

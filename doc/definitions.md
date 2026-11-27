@@ -1,5 +1,9 @@
-Definitions
-===========
+---
+title: "Definitions"
+description: "A queue that is output by nProbe\u2122 Cento which carries traffic that has been aggregated from multiple input interfaces."
+outline: [2, 3]
+---
+# Definitions {#definitions}
 
 - Aggregated Egress Queue
 
@@ -55,7 +59,7 @@ The ntop high-performance packet-to-disk software that records network packets t
 
 - NetFlow v5/v9
 
-Standards that define and describe how to aggregate packets into flows, and how to transfer flow data from an exporter to a collector. 
+Standards that define and describe how to aggregate packets into flows, and how to transfer flow data from an exporter to a collector.
 
 - ntopng
 
@@ -100,4 +104,3 @@ A piece of hardware/software that writes network packets to persistent storage (
 - TAP
 
 A network TAP (Test Access Point) is a hardware device inserted at a specific point in the network to monitor full-duplex data.
-
